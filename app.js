@@ -30,4 +30,26 @@ function addTask() {
     }
 }
 
+function toggleTask(index) {
+    tasks[index].completed = !tasks[index].completed;
+    saveTasks();
+    renderTasks();
+}
+
+function deleteTask(index) {
+    tasks.splice(index, 1);
+    saveTasks();
+    renderTasks();
+}
+
+function saveTasks() {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function clearLocalStorage() {
+    tasks = [];
+    saveTasks();
+    renderTasks();
+}
+
 renderTasks();
