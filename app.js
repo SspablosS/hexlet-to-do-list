@@ -18,4 +18,16 @@ function renderTasks() {
     });
 }
 
+function addTask() {
+    const taskInput = document.getElementById('new-task');
+    const taskName = taskInput.value.trim();
+
+    if (taskName !== '') {
+        tasks.push({ name: taskName, completed: false });
+        taskInput.value = '';
+        saveTasks();
+        renderTasks();
+    }
+}
+
 renderTasks();
